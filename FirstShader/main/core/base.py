@@ -1,5 +1,6 @@
 import pygame
 import sys
+from .input import Input
 
 class Base(object):
 
@@ -7,7 +8,7 @@ class Base(object):
         pygame.init()
 
         displayFlags = pygame.DOUBLEBUF | pygame.OPENGL
-
+        
         #Sets the screen rendering attributes
         pygame.display.gl_set_attribute(pygame.GL_MULTISAMPLEBUFFERS, 1)
         pygame.display.gl_set_attribute(pygame.GL_MULTISAMPLESAMPLES, 4)
@@ -26,6 +27,9 @@ class Base(object):
         #sets clock for time-related events
         self.clock = pygame.time.Clock()
 
+        #Manages user input
+        self.input = Input()
+
     
     def initialize(self):
         pass
@@ -40,7 +44,13 @@ class Base(object):
         #Runs app
         while self.running:
 
+            ##Process input##
+            self.input.update()
+            if self.input.quit:
+                self.running = False
+
             self.update()
+
 
             ##Render##
             #displays image on screen
@@ -48,6 +58,8 @@ class Base(object):
 
             #Pause, if necessary, to achieve 60 FPS
             self.clock.tick(60)
+
+            
         
         ##shutdown##
         pygame.quit()
