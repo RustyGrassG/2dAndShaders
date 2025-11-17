@@ -1,6 +1,6 @@
 from OpenGL.GL import *
 
-class OpenGLUtuls(object):
+class OpenGLUtils(object):
 
     @staticmethod
     def initializeShader(shaderCode, shaderType):
@@ -33,8 +33,8 @@ class OpenGLUtuls(object):
 
     @staticmethod
     def initializeProgram(vertexShaderCode, fragmentShaderCode):
-        vertexShaderRef = OpenGLUtuls.initializeShader(vertexShaderCode, GL_VERTEX_SHADER)
-        fragmentShaderRef = OpenGLUtuls.initializeShader(fragmentShaderCode, GL_FRAGMENT_SHADER)
+        vertexShaderRef = OpenGLUtils.initializeShader(vertexShaderCode, GL_VERTEX_SHADER)
+        fragmentShaderRef = OpenGLUtils.initializeShader(fragmentShaderCode, GL_FRAGMENT_SHADER)
 
         #Create empty program object and store reference to it
         programRef = glCreateProgram()

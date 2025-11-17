@@ -1,5 +1,5 @@
 from core.base import Base
-from core.openGLUtils import OpenGLUtuls
+from core.openGLUtils import OpenGLUtils
 from core.attribute import Attribute
 from OpenGL.GL import *
 
@@ -26,7 +26,7 @@ class Test(Base):
         }
         """
 
-        self.programRef = OpenGLUtuls.initializeProgram(vsCode, fsCode)
+        self.programRef = OpenGLUtils.initializeProgram(vsCode, fsCode)
 
         #Render Settings#
         glLineWidth(4)

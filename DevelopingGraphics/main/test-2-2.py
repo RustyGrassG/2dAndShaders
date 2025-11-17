@@ -1,5 +1,5 @@
 from core.base import Base
-from core.openGLUtils import OpenGLUtuls
+from core.openGLUtils import OpenGLUtils
 from OpenGL.GL import *
 
 #render a single point
@@ -28,7 +28,7 @@ class Test(Base):
         """
 
         #Send code to the GPU and compile; storethe program reference
-        self.programRef = OpenGLUtuls.initializeProgram(vsCode, fsCode)
+        self.programRef = OpenGLUtils.initializeProgram(vsCode, fsCode)
 
         ###set up vertex array object###
         vaoRef = glGenVertexArrays(1)
