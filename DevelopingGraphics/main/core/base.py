@@ -5,6 +5,9 @@ from .input import Input
 class Base(object):
 
     def __init__(self, screenSize=[512,512]):
+        #Number of seconds application has been running
+        self.time = 0
+
         pygame.init()
 
         displayFlags = pygame.DOUBLEBUF | pygame.OPENGL
@@ -48,6 +51,11 @@ class Base(object):
             self.input.update()
             if self.input.quit:
                 self.running = False
+
+            #Seconds since iteration of run loop
+            self.deltaTime = self.clock.get_time() / 1000
+            #increment time application has been running
+            self.time += self.deltaTime
 
             self.update()
 
